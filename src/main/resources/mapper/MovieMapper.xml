@@ -68,7 +68,7 @@
         and del = 0
     </update>
 
-    <delete id="delUpMiePics">
+    <delete id="delUpMiePics"> <!--db에 iuser가 없어서 where에 iuser가 없음 -->
         delete
         from t_media_pics
         where imedia = #{imedia}
@@ -136,6 +136,7 @@
         AND imedia = #{imedia}
         and del = 0
     </select>
+
     <select id="getDetailMediaPics">
         SELECT p.pic
         from t_media m
