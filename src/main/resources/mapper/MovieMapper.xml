@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.demo.movies.MovieMapper">
+    <!-- 일정 추가-->
+
+    <insert id="postMedia" useGeneratedKeys="true" keyProperty="imedia">
+        insert into t_media
+        set iuser = #{iuser}
+        , title = #{title}
+        , date = #{date}
+        , genrepk = #{genrepk}
+        , is_saw = #{isSaw}
+        , del = 0
+        <if test="isSaw == 0">
+            , comment = null
+            , star = null
+        </if>
+        <if test="isSaw == 1">
+            <if test="comment != null">
+                , comment = #{comment}
+            </if>
+            <if test="star > 0 ">
+                , star = #{star}
+            </if>
+        </if>
+    </insert>
+    
+    <!--일정 추가 : 사진 추가-->
+    <insert id="postMediaPics">
+        insert into t_media_pics
+        (imedia, pic)
+        values
+        <foreach collection="pics" item="pic" open="(" separator="),(" close=")">
+            #{imedia}, #{pic}
+        </foreach>
+    </insert>
+    
+    <!-- 일정 수정-->
+    <update id="upMedia">
+        UPDATE t_media
+        SET
+        <if test="title != null and title != '' ">
+            title = #{title}
+        </if>
+        <if test="date != null and date != '' ">
+            , date = #{date}
+        </if>
+        <if test="genrepk != null and genrepk != '' ">
+            , genrepk = #{genrepk}
+        </if>
+        <if test="isSaw != null and isSaw != '' ">
+            , is_saw = #{isSaw}
+        </if>
+        <if test="isSaw == 0">
+            , comment = null
+            , star = null
+        </if>
+        <if test="isSaw == 1">
+            <if test="comment != null and isSaw != ''">
+            , comment = #{comment}
+            </if>
+            <if test="star > 0 and isSaw != ''">
+            , star = #{star}
+             </if>
+        </if>
+        where iuser = #{iuser}
+        and imedia = #{imedia}
+        and del = 0
+    </update>
+
+    <delete id="delUpMiePics">
+        delete
+        from t_media_pics
+        where imedia = #{imedia}
+    </delete>
+
+    <!--일정 삭제 : 일정 삭제-->
+    <update id="delMedia">
+        update t_media
+        set del = 1
+        where imedia = #{imedia}
+        and iuser = #{iuser}
+        and del = 0
+    </update>
+
+
+    <!--메인페이지 출력-->
+    <select id="getMediaAll">
+        select p.pic, Day(m.date) as day,
+        COUNT(distinct m.imedia) as imedia
+        from t_media m
+        join t_media_pics p
+        ON m.imedia = p.imedia
+        WHERE MONTH (m.date) = #{month}
+        AND YEAR (m.date) = #{year}
+        and m.iuser = #{iuser}
+        and m.del = 0
+        GROUP BY m.date
+
+    </select>
+
+    <!--날짜별 media 리스트select하기-->
+    <select id="getDayMedia">
+        select m.imedia, p.pic, m.title, m.date,
+        if(m.is_saw = 1, m.star, NULL) as star
+        from t_media m
+        join t_media_pics p
+        ON p.imedia = m.imedia
+        where m.date = #{date}
+        and m.iuser = #{iuser}
+        and m.del = 0
+        GROUP BY p.imedia
+    </select>
+
+    <!-- media 리스트(볼것/본것)-->
+    <select id="getMedia">
+        select m.imedia, m.title, m.date, p.pic,
+        if(m.is_saw = 1, m.star, NULL) as star,
+        if(m.is_saw = 1, m.comment, NULL) as comment
+        from t_media m
+        join t_media_pics p
+        ON m.imedia = p.imedia
+        where m.is_saw = #{isSaw}
+        and m.iuser = #{iuser}
+        and m.del = 0
+        GROUP BY m.imedia
+    </select>
+
+    <!-- media 상세 페이지-->
+    <select id="getDetailMedia">
+        SELECT imedia,title, date, is_saw AS isSaw,
+        if(m.is_saw = 1, m.star, NULL) as star,
+        if(m.is_saw = 1, m.comment, NULL) as comment, genrepk
+        from t_media
+        WHERE iuser = #{iuser}
+        AND imedia = #{imedia}
+        and del = 0
+    </select>
+    <select id="getDetailMediaPics">
+        SELECT p.pic
+        from t_media m
+        join t_media_pics p
+        ON p.imedia = m.imedia
+        where m.imedia = #{imedia}
+        and m.del = 0
+    </select>
+ </mapper>
