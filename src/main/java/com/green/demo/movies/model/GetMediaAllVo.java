@@ -6,5 +6,6 @@ import lombok.Data;
 public class GetMediaAllVo {
     private int imedia;
     private String pic;
-    private int day;
+    private int date;
+    private int mediaCnt ;
 }

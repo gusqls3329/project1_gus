@@ -34,7 +34,7 @@ public class MovieControlle {
         return service.getMediaAll(dto);
     }
     // 날짜별 media 리스트select하기
-    @GetMapping("/day0")
+    @GetMapping("/day")
     public List<GetDayMediaVo> getDayMedia( GetDayMediaDto dto){
         return service.getDayMedia(dto);
     }

@@ -15,6 +15,8 @@ public interface MovieMapper {
     int upMedia(UpDto dto);
     //일정 수정 : 사진 삭제
     int delUpMiePics(UpDto dto);
+    // 일정 삭제 : 삭제 전 글쓴사람이 맞는지 확인
+    SeldelMediaVo seldelMedia(DelMideaDto dto);
     // 일정 삭제 : 일정 삭제
     int delMedia(DelMideaDto dto);
     // 일정 삭제 : 사진삭제

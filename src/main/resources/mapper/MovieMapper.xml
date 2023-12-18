@@ -10,7 +10,6 @@
         , date = #{date}
         , genrepk = #{genrepk}
         , is_saw = #{isSaw}
-        , del = 0
         <if test="isSaw == 0">
             , comment = null
             , star = null
@@ -45,7 +44,7 @@
         <if test="date != null and date != '' ">
             , date = #{date}
         </if>
-        <if test="genrepk != null and genrepk != '' ">
+        <if test="5 > genrepk > 0 ">
             , genrepk = #{genrepk}
         </if>
         <if test="isSaw != null and isSaw != '' ">
@@ -56,12 +55,8 @@
             , star = null
         </if>
         <if test="isSaw == 1">
-            <if test="comment != null and isSaw != ''">
             , comment = #{comment}
-            </if>
-            <if test="star > 0 and isSaw != ''">
             , star = #{star}
-             </if>
         </if>
         where iuser = #{iuser}
         and imedia = #{imedia}
@@ -82,12 +77,18 @@
         and iuser = #{iuser}
         and del = 0
     </update>
-
+    <select id="seldelMedia">
+        SELECT imedia
+        FROM t_media
+        WHERE iuser = #{iuser}
+        AND imedia = #{imedia}
+        AND del = 0
+    </select>
 
     <!--메인페이지 출력-->
     <select id="getMediaAll">
-        select p.pic, Day(m.date) as day,
-        COUNT(distinct m.imedia) as imedia
+        select m.imedia, p.pic, m.date,
+        COUNT(distinct m.imedia) as mediaCnt
         from t_media m
         join t_media_pics p
         ON m.imedia = p.imedia
@@ -96,7 +97,6 @@
         and m.iuser = #{iuser}
         and m.del = 0
         GROUP BY m.date
-
     </select>
 
     <!--날짜별 media 리스트select하기-->
@@ -115,8 +115,7 @@
     <!-- media 리스트(볼것/본것)-->
     <select id="getMedia">
         select m.imedia, m.title, m.date, p.pic,
-        if(m.is_saw = 1, m.star, NULL) as star,
-        if(m.is_saw = 1, m.comment, NULL) as comment
+        if(m.is_saw = 1, m.star, NULL) as star
         from t_media m
         join t_media_pics p
         ON m.imedia = p.imedia
@@ -129,8 +128,8 @@
     <!-- media 상세 페이지-->
     <select id="getDetailMedia">
         SELECT imedia,title, date, is_saw AS isSaw,
-        if(m.is_saw = 1, m.star, NULL) as star,
-        if(m.is_saw = 1, m.comment, NULL) as comment, genrepk
+        if(is_saw = 1, star, NULL) as star,
+        if(is_saw = 1, comment, NULL) as comment, genrepk
         from t_media
         WHERE iuser = #{iuser}
         AND imedia = #{imedia}

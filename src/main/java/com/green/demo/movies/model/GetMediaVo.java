@@ -9,5 +9,4 @@ public class GetMediaVo {
     private String date;
     private String pic;
     private int star;
-    private String comment;
 }
