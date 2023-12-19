@@ -546,3 +546,35 @@ java.sql.SQLSyntaxErrorException: (conn=294) Unknown column 'm.is_saw' in 'field
 [2023-12-18 17:07:50 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port(s): 8080 (http) with context path ''[0;39m
 [2023-12-18 17:07:50 [32mINFO [0;39m restartedMain] [com.green.demo.DemoApplication] [36mStarted DemoApplication in 0.247 seconds (process running for 5661.986)[0;39m
 [2023-12-18 17:07:50 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m
+[2023-12-18 17:32:30 [32mINFO [0;39m File Watcher] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] [36mRestarting due to 1 class path change (0 additions, 0 deletions, 1 modification)[0;39m
+[2023-12-18 17:32:30 [32mINFO [0;39m Thread-71] [org.apache.coyote.http11.Http11NioProtocol] [36mPausing ProtocolHandler ["http-nio-8080"][0;39m
+[2023-12-18 17:32:30 [32mINFO [0;39m Thread-71] [org.apache.catalina.core.StandardService] [36mStopping service [Tomcat][0;39m
+[2023-12-18 17:32:30 [32mINFO [0;39m Thread-71] [org.apache.coyote.http11.Http11NioProtocol] [36mStopping ProtocolHandler ["http-nio-8080"][0;39m
+[2023-12-18 17:32:30 [32mINFO [0;39m Thread-71] [org.apache.coyote.http11.Http11NioProtocol] [36mDestroying ProtocolHandler ["http-nio-8080"][0;39m
+[2023-12-18 17:32:30 [32mINFO [0;39m restartedMain] [com.green.demo.DemoApplication] [36mStarting DemoApplication using Java 17.0.8.1 with PID 3240 (D:\2023\java\demo\target\classes started by Administrator in D:\2023\java\demo)[0;39m
+[2023-12-18 17:32:30 [32mINFO [0;39m restartedMain] [com.green.demo.DemoApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m
+[2023-12-18 17:32:30 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port(s): 8080 (http)[0;39m
+[2023-12-18 17:32:30 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m
+[2023-12-18 17:32:30 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m
+[2023-12-18 17:32:30 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.15][0;39m
+[2023-12-18 17:32:30 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m
+[2023-12-18 17:32:30 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 140 ms[0;39m
+[2023-12-18 17:32:30 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m
+[2023-12-18 17:32:30 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m
+[2023-12-18 17:32:30 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port(s): 8080 (http) with context path ''[0;39m
+[2023-12-18 17:32:30 [32mINFO [0;39m restartedMain] [com.green.demo.DemoApplication] [36mStarted DemoApplication in 0.257 seconds (process running for 7142.321)[0;39m
+[2023-12-18 17:32:30 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m
+[2023-12-18 17:33:38 [32mINFO [0;39m restartedMain] [com.green.demo.DemoApplication] [36mStarting DemoApplication using Java 17.0.8.1 with PID 11300 (D:\2023\java\demo\target\classes started by Administrator in D:\2023\java\demo)[0;39m
+[2023-12-18 17:33:38 [32mINFO [0;39m restartedMain] [com.green.demo.DemoApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m
+[2023-12-18 17:33:38 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable[0;39m
+[2023-12-18 17:33:38 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'[0;39m
+[2023-12-18 17:33:39 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port(s): 8080 (http)[0;39m
+[2023-12-18 17:33:39 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m
+[2023-12-18 17:33:39 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m
+[2023-12-18 17:33:39 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.15][0;39m
+[2023-12-18 17:33:39 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m
+[2023-12-18 17:33:39 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 681 ms[0;39m
+[2023-12-18 17:33:40 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m
+[2023-12-18 17:33:40 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m
+[2023-12-18 17:33:40 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port(s): 8080 (http) with context path ''[0;39m
+[2023-12-18 17:33:40 [32mINFO [0;39m restartedMain] [com.green.demo.DemoApplication] [36mStarted DemoApplication in 1.457 seconds (process running for 1.847)[0;39m
