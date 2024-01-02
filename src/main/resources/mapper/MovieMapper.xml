@@ -63,11 +63,7 @@
         and del = 0
     </update>
 
-    <delete id="delUpMiePics"> <!--db에 iuser가 없어서 where에 iuser가 없음 -->
-        delete
-        from t_media_pics
-        where imedia = #{imedia}
-    </delete>
+
 
     <!--일정 삭제 : 일정 삭제-->
     <update id="delMedia">

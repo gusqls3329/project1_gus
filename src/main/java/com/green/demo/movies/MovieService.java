@@ -3,7 +3,9 @@ package com.green.demo.movies;
 import com.green.demo.movies.model.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,6 +58,7 @@ public class MovieService {
     public List<GetMediaVo> getMedia(GetMediaDto dto) {
         return mapper.getMedia(dto);
     }
+
 
     // media 상세 페이지
     public GetDetailMediaVo getDetailMedia(GetDetailMediaDto dto) {
