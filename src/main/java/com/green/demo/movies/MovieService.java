@@ -34,8 +34,8 @@ public class MovieService {
         return result;
     }
 
+    // 일정 삭제 : 삭제 전 글쓴사람이 맞는지 확인
     public int delMedia(DelMideaDto dto) {
-        // 일정 삭제 : 삭제 전 글쓴사람이 맞는지 확인
         SeldelMediaVo vo = mapper.seldelMedia(dto);
         if (vo != null) {
             Integer result = mapper.delMedia(dto);
