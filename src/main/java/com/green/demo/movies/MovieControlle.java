@@ -18,21 +18,25 @@ public class MovieControlle {
     public int postMedia(@RequestBody InsDto dto){
         return service.postMedia(dto);
     }
+
     //일정 수정
     @PutMapping
     public int putMedia(@RequestBody UpDto dto){
         return service.putMedia(dto);
     }
+
     // 일정 삭제
     @PutMapping("/del")
     public int delMedia(DelMideaDto dto){
         return service.delMedia(dto);
     }
+
     //메인페이지 출력
     @GetMapping("/ym")
     List<GetMediaAllVo> getMediaAll( GetMediaAllDto dto){
         return service.getMediaAll(dto);
     }
+
     // 날짜별 media 리스트select하기
     @GetMapping("/day")
     public List<GetDayMediaVo> getDayMedia( GetDayMediaDto dto){
