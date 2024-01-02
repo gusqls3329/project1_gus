@@ -38,11 +38,13 @@ public class MovieControlle {
     public List<GetDayMediaVo> getDayMedia( GetDayMediaDto dto){
         return service.getDayMedia(dto);
     }
+
     // media 리스트(볼것/본것)
     @GetMapping
     public List<GetMediaVo> getMedia(GetMediaDto dto){
         return service.getMedia(dto);
     }
+
     // media 상세 페이지
     @GetMapping("/{imedia}")
     public GetDetailMediaVo getDetailMedia(@PathVariable int imedia, int iuser){
